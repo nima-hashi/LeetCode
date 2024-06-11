@@ -4,22 +4,21 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        
-        prev = 0
+        stop = False
         count = 0
         
-        for elm in s:
-            if elm == " ":
-                if count != 0:
-                    prev = count
-                count = 0
-                
-            else:
+        for i in range(len(s) -1, -1, -1):
+            if s[i] != " ":
+                stop = True
                 count += 1
-                
-        if s[-1] == " ":
-            return prev
+            
+            else:
+                if stop:
+                    return count
         return count
+                
+            
+                
                 
         
         
