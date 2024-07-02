@@ -6,26 +6,26 @@ class Solution(object):
         :rtype: bool
         """
         
-        hashMap1 = {}
-        hashMap2 = {}
+        count = {}
         
-        for elm in s:
-            if elm not in hashMap1:
-                hashMap1[elm] = 1
-            
+        for letter in s:
+            if letter not in count:
+                count[letter] = 1
             else:
-                hashMap1[elm] += 1
+                count[letter] += 1
                 
-        for elm in t:
-            if elm not in hashMap2:
-                hashMap2[elm] = 1
+        for letter in t:
+            if letter not in count:
+                return False
             
-            else:
-                hashMap2[elm] += 1
+            count[letter] -= 1
+            
+            if count[letter] < 0:
+                return False
+            
+        return max(count.values()) == 0
         
-        return hashMap1 == hashMap2
-                
-                
+        
         
         
         
