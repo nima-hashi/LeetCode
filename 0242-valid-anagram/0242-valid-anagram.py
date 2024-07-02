@@ -6,24 +6,19 @@ class Solution(object):
         :rtype: bool
         """
         
-        count = {}
+        if len(s) != len(t):
+            return False
         
-        for letter in s:
-            if letter not in count:
-                count[letter] = 1
-            else:
-                count[letter] += 1
-                
+        count = Counter(s)
+        
         for letter in t:
-            if letter not in count:
+            if letter not in count or count[letter] == 0:
                 return False
-            
             count[letter] -= 1
             
-            if count[letter] < 0:
-                return False
+        return True
             
-        return max(count.values()) == 0
+        
         
         
         
