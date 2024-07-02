@@ -17,16 +17,28 @@ class Solution(object):
         #             hm[i] = 1
         #     return tuple(sorted(hm.items()))
 
-        hm = {}
+#         hm = {}
+#         for s in strs:
+#             key = tuple(sorted(s))
+
+#             if key in hm:
+#                 hm[key].append(s)
+#             else:
+#                 hm[key] = [s]
+
+#         return hm.values()
+        
+        hm = defaultdict(list)
         for s in strs:
             key = tuple(sorted(s))
 
-            if key in hm:
-                hm[key].append(s)
-            else:
-                hm[key] = [s]
+            # if key in hm:
+            hm[key].append(s)
+            # else:
+            #     hm[key] = [s]
 
         return hm.values()
+
 
 
     
