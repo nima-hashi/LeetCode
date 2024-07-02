@@ -5,19 +5,13 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-
-        hashMap = {}
-
-        for i in range(len(nums)):
-            search = target - nums[i]
-
-            if search in hashMap:
-                return [i, hashMap[search]]
-
-            hashMap[nums[i]] = i
-
-
-
-
-
         
+        ind = {}
+        
+        for i, num in enumerate(nums):
+            search = target - num
+            if search in ind:
+                return [ind[search], i]
+            ind[num] = i
+                
+    
