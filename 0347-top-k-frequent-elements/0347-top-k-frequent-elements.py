@@ -20,12 +20,11 @@ class Solution(object):
         cnts = sorted(cntToVal.keys(), reverse=True)
         
         # Iterate through the counts and collect the top k elements
-        for cnt in cnts:
-            for num in cntToVal[cnt]:
-                if len(res) < k:
-                    res.append(num)
-                else:
+        for count in cnts:
+            for num in cntToVal[count]:
+                if len(res) == k:
                     return res
+                res.append(num)
         
         return res
         
