@@ -5,13 +5,12 @@ class Solution(object):
         :rtype: bool
         """
         
-        hashMap = {}
+        seen = set()
         
         for num in nums:
-            if str(num) not in hashMap:
-                hashMap[str(num)] = 1
-            else:
-                hashMap[str(num)] += 1
-        
-        return max(hashMap.values()) > 1
-                
+            if num in seen:
+                return True
+            seen.add(num)
+            
+        return False
+    
