@@ -27,19 +27,21 @@ class Solution(object):
         # compare flipped w original
         
         def copyList(head):
-            if not head:
-                return None
-            new_head = ListNode(head.val)
-            new_curr = new_head
-            curr = head.next
-            while curr:
-                new_node = ListNode(curr.val)
-                new_curr.next = new_node
-                new_curr = new_node
-                curr = curr.next
-            return new_head
+            
+            new = ListNode()
+            tmp = new
+            
+            while head and new:
+                new.next = ListNode(head.val)
+                head = head.next
+                new = new.next
+            
+            return tmp.next
         
+        # compare flipped w original    
+            
         copy = copyList(head)
+        
         head2 = reverse(copy)
 
         while head:
