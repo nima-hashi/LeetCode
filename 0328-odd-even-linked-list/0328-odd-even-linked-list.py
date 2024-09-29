@@ -34,6 +34,8 @@ class Solution(object):
         oddCurr.next = even.next
         
         return odd.next
+
+
             
         
         
