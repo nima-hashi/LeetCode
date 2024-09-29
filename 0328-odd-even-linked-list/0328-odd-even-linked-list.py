@@ -10,30 +10,57 @@ class Solution(object):
         :rtype: ListNode
         """
         
-        odd = ListNode()
-        even = ListNode()
+        if not head or not head.next or not head.next.next:
+            return head
         
-        curr = head
-        oddCurr = odd
-        evenCurr = even
+        oddPtr = curr = head
+        evenPtr = evenHead = head.next
         
-        i = 1
+        c = 1
+        
         while curr:
-            if i % 2 == 0:
-                evenCurr.next = curr
-                evenCurr = evenCurr.next
+            if c > 2 and c % 2 == 1:
+                oddPtr.next = curr
+                oddPtr = oddPtr.next
                 
-            if i % 2 == 1:
-                oddCurr.next = curr
-                oddCurr = oddCurr.next
-                
+            if c > 2 and c % 2 == 0:
+                evenPtr.next = curr
+                evenPtr = evenPtr.next
+            
             curr = curr.next
-            i += 1
+            c += 1
+            
+        evenPtr.next = None 
+        oddPtr.next = evenHead
         
-        evenCurr.next = None
-        oddCurr.next = even.next
+        return head
+            
         
-        return odd.next
+        
+#         odd = ListNode()
+#         even = ListNode()
+        
+#         curr = head
+#         oddCurr = odd
+#         evenCurr = even
+        
+#         i = 1
+#         while curr:
+#             if i % 2 == 0:
+#                 evenCurr.next = curr
+#                 evenCurr = evenCurr.next
+                
+#             if i % 2 == 1:
+#                 oddCurr.next = curr
+#                 oddCurr = oddCurr.next
+                
+#             curr = curr.next
+#             i += 1
+        
+#         evenCurr.next = None
+#         oddCurr.next = even.next
+        
+#         return odd.next
 
 
             
